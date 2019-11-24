@@ -1,6 +1,6 @@
-# take_break_flutter
+# Take Break Client (Flutter Version)
 
-take break flutter app
+Take Break Flutter App
 
 ## Getting Started
 
