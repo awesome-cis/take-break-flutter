@@ -59,6 +59,11 @@ class _LoginPageState extends State<LoginPage> {
       print('Printing the login data.');
       print('Email: ${_data.email}');
       print('Password: ${_data.password}');
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => SecondRoute()),
+      );
     }
   }
 
@@ -106,6 +111,25 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           )),
+    );
+  }
+}
+
+class SecondRoute extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Second Route"),
+      ),
+      body: Center(
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Go back!'),
+        ),
+      ),
     );
   }
 }
