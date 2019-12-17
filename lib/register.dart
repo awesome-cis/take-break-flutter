@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:validate/validate.dart';
+import 'dashboard.dart';
 
-class RegisterPage extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _RegisterPageState createState() {
-    return _RegisterPageState();
+  _RegisterState createState() {
+    return _RegisterState();
   }
 }
 
@@ -14,7 +15,7 @@ class _RegisterData {
   String passwordConfirmation = '';
 }
 
-class _RegisterPageState extends State<RegisterPage> {
+class _RegisterState extends State<Register> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   _RegisterData _data = new _RegisterData();
 
@@ -33,7 +34,10 @@ class _RegisterPageState extends State<RegisterPage> {
       return 'The Password must be at least 8 characters.';
     }
 
-    return null;
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => Dashboard()),
+    );
   }
 
   void submit() {
@@ -41,10 +45,6 @@ class _RegisterPageState extends State<RegisterPage> {
     if (this._formKey.currentState.validate()) {
       _formKey.currentState.save(); // Save our form now.
 
-//      Navigator.push(
-//        context,
-//        MaterialPageRoute(builder: (context) => SecondRoute()),
-//      );
     }
   }
 

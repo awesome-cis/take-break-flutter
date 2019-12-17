@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:validate/validate.dart';
 import 'register.dart';
+import 'dashboard.dart';
 
-class LoginPage extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
-  _LoginPageState createState() {
-    return _LoginPageState();
+  _LoginState createState() {
+    return _LoginState();
   }
 }
 
@@ -14,7 +15,7 @@ class _LoginData {
   String password = '';
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginState extends State<Login> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   _LoginData _data = new _LoginData();
 
@@ -47,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
 
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SecondRoute()),
+        MaterialPageRoute(builder: (context) => Dashboard()),
       );
     }
   }
@@ -55,7 +56,7 @@ class _LoginPageState extends State<LoginPage> {
   void register() {
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => RegisterPage()),
+      MaterialPageRoute(builder: (context) => Register()),
     );
   }
 
@@ -115,25 +116,6 @@ class _LoginPageState extends State<LoginPage> {
               ],
             ),
           )),
-    );
-  }
-}
-
-class SecondRoute extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Second Route"),
-      ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Go back!'),
-        ),
-      ),
     );
   }
 }
